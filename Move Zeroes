@@ -1,0 +1,42 @@
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        L=len(nums)
+        #writepoint
+        i=0
+        #readpoint
+        j=1
+        while nums[i]!=0 and i<L and j<L:
+            i+=1
+            j+=1
+
+        while i<L and j<L:
+            if nums[j]!=0 :
+                nums[i]=nums[j]
+                nums[j]=0
+                i+=1
+            j+=1
+                
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        L=len(nums)
+        #writepoint
+        i=0
+        #readpoint
+        j=0                
+        while j<L:
+            if nums[j]!=0:
+                nums[i]=nums[j]
+                i+=1
+            j+=1
+        
+        j=i
+        while j<L:
+            nums[j]=0
+            j+=1
+                
