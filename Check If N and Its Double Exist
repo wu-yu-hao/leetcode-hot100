@@ -1,0 +1,10 @@
+class Solution:
+    def checkIfExist(self, arr: List[int]) -> bool:
+        a={}
+        L=len(arr)
+        i=0
+        while i<L-1 and (arr[i]/2 not in a) and (arr[i]*2 not in a):
+                a[arr[i]]=i
+                i+=1
+        
+        return (arr[i]/2 in a) or (arr[i]*2 in a)
