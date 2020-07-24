@@ -1,0 +1,12 @@
+class Solution:
+    def thirdMax(self, nums: List[int]) -> int:
+        V=[float('-inf'), float('-inf'), float('-inf')] #初始化 无穷小
+        for num in nums:
+            if num > V[0]:
+                V=[num,V[0],V[1]]
+            elif V[0]>num>V[1]:
+                V=[V[0],num,V[1]]
+            elif V[1]>num>V[2]:
+                V=[V[0],V[1],num]
+        
+        return V[2] if V[2]!=float('-inf') else V[0]
