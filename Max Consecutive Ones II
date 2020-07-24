@@ -1,0 +1,35 @@
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        counter=0
+        counterB=0
+        max_counter=0
+        key=0
+        for num in nums:
+            if num==1 and key==0:
+                counter+=1
+            elif num==1 and key==1:
+                counter+=1
+                counterB+=1
+            elif num==0 and key==0:
+                counter+=1
+                key=1
+            elif num==0 and key==1:
+                max_counter=max(max_counter,counter)
+                counter=counterB+1
+                counterB=0
+                
+        return max(max_counter,counter)
+
+#优化写法
+class Solution(object):
+    def findMaxConsecutiveOnes(self, nums):
+        # previous and current length of consecutive 1 
+        pre, curr, maxlen = -1, 0, 0
+        for n in nums:
+            if n == 0:
+                pre, curr = curr, 0
+            else:
+                curr += 1
+            maxlen = max(maxlen, pre + 1 + curr )
+        
+        return maxlen
